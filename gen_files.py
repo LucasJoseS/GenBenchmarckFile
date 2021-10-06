@@ -1,5 +1,6 @@
 #!python
 from os import mkdir, sep
+from sys import argv
 
 def main(fsize, n):
     dirname = f"{fsize}-{n}"
@@ -15,7 +16,10 @@ def main(fsize, n):
 
 
 if(__name__ == "__main__"):
-    main(10, 50);
-    main(50, 10);
-    main(100, 5);
-    main(500, 1);
+    try:
+        fsize = int(argv[1])
+        n = int(argv[2])
+    except:
+        print("python gen_files.py [fsize] [n]")
+    else:
+        main(fsize, n)
