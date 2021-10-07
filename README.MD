@@ -1,3 +1,2 @@
-Aplicações desenvolvida para a criação de arquivos de exemplos utilizados durando o
-trabalho T4 Windows 98 na materia de Sistema Operacional Fatec para a realização de
-benchmarks
+# Gen Benchmarck Files
+Aplicação desenvolvida para a criação de arquivos de exemplos para a utilização em benchmarcks no Windows 98 (Escrita em disco).
