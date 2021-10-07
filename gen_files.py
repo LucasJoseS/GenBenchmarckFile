@@ -2,24 +2,23 @@
 from os import mkdir, sep
 from sys import argv
 
-def main(fsize, n):
-    dirname = f"{fsize}-{n}"
-    try:
-        mkdir(dirname)
-    except:
-        print(f"dir {dirname} arredy exists.")
+MBSize = 1024*1024
 
-    for n in range(n):
-        with open(f"{dirname}{sep}{n+1}.bin", "wb") as file:
-            for c in range(1024*1024*fsize):
+try:
+    fsize = int(argv[1])
+    nfiles = int(argv[2])
+
+    dirname = f'{fsize}MB-{nfiles}F'
+    mkdir(dirname)
+
+except(IndexError):
+    print('USE: python gen_files.py [fsize] [nfiles]')
+
+except(FileExistsError):
+    print(f'DIR: {dirname} arredy exist.')
+
+else:
+    for n in range(nfiles):
+        with open(f'{dirname}{sep}{n}.bin', 'wb') as file:
+            for _byte in range(MBSize*fsize):
                 file.write(b'0');
-
-
-if(__name__ == "__main__"):
-    try:
-        fsize = int(argv[1])
-        n = int(argv[2])
-    except:
-        print("python gen_files.py [fsize] [n]")
-    else:
-        main(fsize, n)
